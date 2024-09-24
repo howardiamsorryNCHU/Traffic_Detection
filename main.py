@@ -15,7 +15,6 @@ else:
     print('There are more pedestrians')
 
 
-
 for i in range(0, len(walkman.video_images)-1): #顯示出所有擷取之圖片
     cv2.imshow('Pedestrian', walkman.result[i])
     cv2.waitKey(200)
@@ -47,19 +46,15 @@ X_train = scalar.transform(X_train)
 y_train = training_set[:,0] 
 
 regressor = Sequential()
-
 # Adding the first LSTM layer and some Dropout regularisation
 regressor.add(LSTM(units = 3, return_sequences = True, input_shape = (X_train.shape[1], 1)))
 regressor.add(Dropout(0.2))
-
 regressor.add(LSTM(units = 6))
 regressor.add(Dropout(0.2))
-
 regressor.add(Dense(units = 1))
 
 regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 regressor.fit(X_train, y_train, epochs = 50, batch_size = 32)
-
 
 X_predict = np.array([[proportion]])
 X_predict = scalar.transform(X_predict)
