@@ -1,0 +1,5 @@
+car and walkman detects objects with cascade model in OpenCV
+https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html
+
+light.py calculate the proportion of car / pedestrian and predict the accident number that will happen
+based on a US traffic accident report
